@@ -39,7 +39,7 @@
                     <div class="d-flex">
                         <a href="{{ route('mahasiswa.index') }}" class="btn btn-link">Kembali</a>
                         <a href="{{ route('mahasiswa.edit', $mahasiswa) }}" class="btn btn-primary ms-auto">Edit
-                            Fakultas</a>
+                            Mahasiswa</a>
                     </div>
                 </div>
             </div>

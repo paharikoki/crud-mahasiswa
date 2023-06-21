@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('container')
-    <div class="row row-cards ">
+    {{-- <div class="row row-cards ">
         <div class="col-12">
             <div class="card">
                 <table class="table table-vcenter card-table">
@@ -85,18 +85,18 @@
                                                 data-bs-toggle="modal" data-bs-target="#modal-delete">
                                                 Delete
                                             </a> --}}
-                                            <a class="dropdown-item" href="{{ route('fakultas.destroy', $fakultas) }}">
-                                                Delete
-                                            </a>
-                                        </div>
-                                    </span>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    {{-- <a class="dropdown-item" href="{{ route('fakultas.destroy', $fakultas) }}">
+        Delete
+    </a>
+    </div>
+    </span>
+    </td>
+    </tr>
+    @endforeach
+    </tbody>
+    </table>
+    </div>
+    </div>
     </div>
     <div class="row row-cards mt-4">
         <div class="col-12">
@@ -143,5 +143,5 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection

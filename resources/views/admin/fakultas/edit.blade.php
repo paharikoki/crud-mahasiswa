@@ -22,7 +22,7 @@
                             <div class="mb-3">
                                 <div class="col ">
                                     <div class="col-12 gap-3">
-                                        <button type="submit" class="btn btn-primary w-100">Tambah Prodi</button>
+                                        <button type="submit" class="btn btn-primary w-100">Edit Mahasiswa</button>
                                         <a href="{{ route('fakultas.index') }}"
                                             class="btn btn-outline w-100 mt-2">Kembali</a>
                                     </div>

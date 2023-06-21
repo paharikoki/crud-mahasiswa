@@ -18,17 +18,25 @@
                             <div class="mb-3">
                                 <div class="form-label">Program Studi</div>
                                 <select class="form-select" id="prodi_id" name="prodi_id">
-                                    <option>Pilih Program Studi</option>
+                                    <option value="">Pilih Program Studi</option>
                                     @foreach ($allprodi as $prodi)
-                                        <option value="{{ $prodi->id }}">{{ $prodi->jenjang->name }} |
+                                        <option value="{{ $prodi->id }}"
+                                            {{ old('prodi_id') == $prodi->id ? 'selected' : '' }}>
+                                            {{ $prodi->jenjang->name }} |
                                             {{ $prodi->name }}
                                         </option>
                                     @endforeach
                                 </select>
+                                @error('prodi_id')
+                                    <span class="error text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Nama</label>
-                                <input type="text" class="form-control" name="name">
+                                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                                @error('name')
+                                    <span class="error text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             {{-- <div class="mb-3">
                                 <label class="form-label">Nomor Induk Mahasiswa</label>
@@ -37,20 +45,23 @@
                             <div class="mb-3">
                                 <div class="form-label">Jenis Kelamin</div>
                                 <select class="form-select" id="jk" name="jk">
-                                    <option>Pilih Jenis Kelamin</option>
-                                    <option value="laki-laki">Laki - Laki</option>
-                                    <option value="perempuan">Perempuan</option>
+                                    <option value="">Pilih Jenis Kelamin</option>
+                                    <option value="1" {{ old('jk') == '1' ? 'selected' : '' }}>Laki - Laki</option>
+                                    <option value="2" {{ old('jk') == '2' ? 'selected' : '' }}>Perempuan</option>
                                     {{-- @foreach ($allprodi as $prodi)
                                         <option value="{{ $prodi->id }}">{{ $prodi->jenjang->name }} |
                                             {{ $prodi->name }}
                                         </option>
                                     @endforeach --}}
                                 </select>
+                                @error('jk')
+                                    <span class="error text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <div class="col ">
                                     <div class="col-12 gap-3">
-                                        <button type="submit" class="btn btn-primary w-100">Tambah Prodi</button>
+                                        <button type="submit" class="btn btn-primary w-100">Tambah Mahasiswa</button>
                                         <a href="{{ route('mahasiswa.index') }}"
                                             class="btn btn-outline w-100 mt-2">Cancel</a>
                                     </div>

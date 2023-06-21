@@ -18,10 +18,16 @@
                             <div class="mb-3">
                                 <label class="form-label">Nama</label>
                                 <input type="text" class="form-control" name="name">
+                                @error('name')
+                                    <span class="error text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Kode</label>
                                 <input type="text" class="form-control" name="kode" maxlength="3">
+                                @error('kode')
+                                    <span class="error text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Fakultas</label>
@@ -33,6 +39,9 @@
                                         </option>
                                     @endforeach
                                 </select>
+                                @error('fakultas_id')
+                                    <span class="error text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Jenjang</label>
@@ -44,11 +53,14 @@
                                         </option>
                                     @endforeach
                                 </select>
+                                @error('jenjang_id')
+                                    <span class="error text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <div class="col ">
                                     <div class="col-12 gap-3">
-                                        <button type="submit" class="btn btn-primary w-100">Tambah Prodi</button>
+                                        <button type="submit" class="btn btn-primary w-100">Tambah Program Studi</button>
                                         <a href="{{ route('prodi.index') }}" class="btn btn-outline w-100 mt-2">Cancel</a>
                                     </div>
                                 </div>

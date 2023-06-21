@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('container')
     <div class="row row-cards">
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success" role="alert" id="autohide-alert">
+                {{ $message }}
+            </div>
+        @endif
         <div class="col-12">
             <div class="card">
                 <table class="table table-vcenter card-table">
@@ -24,10 +29,10 @@
                         @foreach ($allmahasiswa as $mahasiswa)
                             <tr>
                                 <td>{{ $startIndex++ }}</td>
-                                <td class="text-muted">{{ $mahasiswa->user->email }}</td>
-                                <td class="text-muted">{{ $mahasiswa->user->name }}</td>
-                                <td class="text-muted">{{ $mahasiswa->prodi->name }}</td>
-                                <td class="text-muted">{{ $mahasiswa->prodi->jenjang->name }}</td>
+                                <td>{{ $mahasiswa->user->email }}</td>
+                                <td>{{ $mahasiswa->user->name }}</td>
+                                <td>{{ $mahasiswa->prodi->name }}</td>
+                                <td>{{ $mahasiswa->prodi->jenjang->name }}</td>
                                 <td class=" text-capitalize">{{ $mahasiswa->status == 1 ? 'Aktif' : 'Tidak Aktif' }}</td>
                                 <td class="text-end">
                                     <span class="dropdown">
@@ -40,9 +45,29 @@
                                             <a class="dropdown-item" href="{{ route('mahasiswa.edit', $mahasiswa) }}">
                                                 Edit
                                             </a>
-                                            <a class="dropdown-item" href="{{ route('mahasiswa.destroy', $mahasiswa) }}">
+                                            <a class="dropdown-item"
+                                                onclick="event.preventDefault();
+                                                Swal.fire({
+                                                    title: 'Are you sure you want to delete this record?',
+                                                    html: 'Name: {{ $mahasiswa->user->name }}<br> Email: {{ $mahasiswa->user->email }}<br> Prodi: {{ $mahasiswa->prodi->name }}<br> Jenjang: {{ $mahasiswa->prodi->jenjang->name }}'
+                                                , icon: 'warning' , showCancelButton: true, confirmButtonColor: '#3085d6' ,
+                                                cancelButtonColor: '#d33' , confirmButtonText: 'Yes, delete it!'
+                                                }).then((result)=> {
+                                                if (result.isConfirmed) {
+                                                window.location.href = '{{ route('mahasiswa.destroy', $mahasiswa) }}';
+                                                } else {
+                                                Swal.fire(
+                                                'Cancelled',
+                                                'Deletion canceled your data is safe :)',
+                                                'info'
+                                                )
+                                                }
+                                                })
+                                                ">
                                                 Delete
+                                                {{-- href="{{ route('mahasiswa.destroy', $mahasiswa) }}" --}}
                                             </a>
+
                                         </div>
                                     </span>
                                 </td>

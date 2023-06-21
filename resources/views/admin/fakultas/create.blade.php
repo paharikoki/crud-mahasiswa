@@ -8,7 +8,7 @@
         <div class="col-xl-6 col-md-6 ">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Add New Fakultas</h3>
+                    <h3 class="card-title">Tambah Fakultas</h3>
                 </div>
                 <div class="card-body">
                     <div class="col-md-12 col-xl-12">
@@ -18,11 +18,14 @@
                             <div class="mb-3">
                                 <label class="form-label">Nama</label>
                                 <input type="text" class="form-control" name="name">
+                                @error('name')
+                                    <span class="error text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <div class="col ">
                                     <div class="col-12 gap-3">
-                                        <button type="submit" class="btn btn-primary w-100">Tambah Prodi</button>
+                                        <button type="submit" class="btn btn-primary w-100">Tambah Fakultas</button>
                                         <a href="{{ route('fakultas.index') }}"
                                             class="btn btn-outline w-100 mt-2">Kembali</a>
                                     </div>

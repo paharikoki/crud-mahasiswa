@@ -8,7 +8,7 @@
         <div class="col-xl-6 col-md-6 ">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Add New Mahasiswa</h3>
+                    <h3 class="card-title">Edit Mahasiswa</h3>
                 </div>
                 <div class="card-body">
                     <div class="col-md-12 col-xl-12">
@@ -84,7 +84,7 @@
                             <div class="mb-3">
                                 <div class="col ">
                                     <div class="col-12 gap-3">
-                                        <button type="submit" class="btn btn-primary w-100">Tambah Prodi</button>
+                                        <button type="submit" class="btn btn-primary w-100">Edit Mahasiswa</button>
                                         <a href="{{ route('mahasiswa.index') }}"
                                             class="btn btn-outline w-100 mt-2">Cancel</a>
                                     </div>

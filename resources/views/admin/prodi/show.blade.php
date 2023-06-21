@@ -25,7 +25,7 @@
                 <div class="card-footer">
                     <div class="d-flex">
                         <a href="{{ route('prodi.index') }}" class="btn btn-link">Kembali</a>
-                        <a href="{{ route('prodi.edit', $prodi) }}" class="btn btn-primary ms-auto">Edit Fakultas</a>
+                        <a href="{{ route('prodi.edit', $prodi) }}" class="btn btn-primary ms-auto">Edit Program Studi</a>
                     </div>
                 </div>
             </div>

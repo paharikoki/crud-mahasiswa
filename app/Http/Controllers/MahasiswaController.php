@@ -9,6 +9,7 @@ use App\Models\Prodi;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator as Validator;
 
 class MahasiswaController extends Controller
 {
@@ -41,6 +42,18 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
+        $rules =[
+            'name'=>'required',
+            'jk'=>'required',
+            'prodi_id'=>'required',
+        ];
+        $messages = [
+            'name.required'=>'Nama Mahasiswa tidak boleh kosong',
+            'jk.required'=>'Jenis Kelamin tidak boleh kosong',
+            'prodi_id.required'=>'Program Studi tidak boleh kosong',
+        ];
+        $request->validate($rules, $messages);
+
         //Generate NIM
         $getnim = Mahasiswa::where('prodi_id', $request->prodi_id)->latest('id')->value('nim');
         if ($getnim != null) {

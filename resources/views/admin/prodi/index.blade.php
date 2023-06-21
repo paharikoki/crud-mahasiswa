@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('container')
     <div class="row row-cards">
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success" role="alert" id="autohide-alert">
+                {{ $message }}
+            </div>
+        @endif
         <div class="col-12">
             <div class="card">
                 <table class="table table-vcenter card-table">
@@ -33,7 +38,25 @@
                                             <a class="dropdown-item" href="{{ route('prodi.edit', $prodi) }}">
                                                 Edit
                                             </a>
-                                            <a class="dropdown-item" href="{{ route('prodi.destroy', $prodi) }}">
+                                            <a class="dropdown-item"
+                                                onclick="event.preventDefault();
+                                            Swal.fire({
+                                                title: 'Are you sure you want to delete this record?',
+                                                html:'Name: {{ $prodi->name }} <br> Fakultas: {{ $prodi->fakultas->name }} <br>Jenjang: {{ $prodi->jenjang->name }}'
+                                            , icon: 'warning' , showCancelButton: true, confirmButtonColor: '#3085d6' ,
+                                            cancelButtonColor: '#d33' , confirmButtonText: 'Yes, delete it!'
+                                            }).then((result)=> {
+                                            if (result.isConfirmed) {
+                                            window.location.href = '{{ route('prodi.destroy', $prodi) }}';
+                                            } else {
+                                            Swal.fire(
+                                            'Cancelled',
+                                            'Deletion canceled your data is safe :)',
+                                            'info'
+                                            )
+                                            }
+                                            })
+                                            ">
                                                 Delete
                                             </a>
                                         </div>

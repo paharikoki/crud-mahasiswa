@@ -24,9 +24,11 @@
     <link rel="stylesheet" href="{{ asset('css/tabler-payments.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/tabler-vendors.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/demo.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/sweetalert2/sweetalert2.min.css') }}">
+    <script src="{{ asset('vendor/sweetalert2/sweetalert2.min.js') }}"></script>
 
     <style>
-        .min-screen {
+        .min-vh-75 {
             min-height: 75vh;
         }
     </style>
@@ -37,8 +39,9 @@
     <div class="wrapper" id="app">
         @include('layouts.header')
         @include('layouts.navbar')
-        <div class="page-wrapper">
-            <div class="container-xl">
+        @include('sweetalert::alert', ['cdn' => 'https://cdn.jsdelivr.net/npm/sweetalert2@9'])
+        <div class="page-wrapper ">
+            <div class="container-xl min-vh-75">
                 <div class="page-body">
                     <div class="container-xl d-flex flex-column justify-content-center">
                         @yield('container')
@@ -54,8 +57,20 @@
     <script src="{{ Vite::asset('resource/js/tabler.min.js') }}"></script> --}}
     <script src="{{ asset('js/demo.min.js') }}"></script>
     <script src="{{ asset('js/tabler.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var alert = document.getElementById('autohide-alert');
+            var bsAlert = new bootstrap.Alert(alert);
+
+            setTimeout(function() {
+                bsAlert.close();
+            }, 6000);
+        });
+    </script>
+
 </body>
 
 </html>
