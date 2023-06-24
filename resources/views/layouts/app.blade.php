@@ -24,8 +24,8 @@
     <link rel="stylesheet" href="{{ asset('css/tabler-payments.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/tabler-vendors.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/demo.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/sweetalert2/sweetalert2.min.css') }}">
-    <script src="{{ asset('vendor/sweetalert2/sweetalert2.min.js') }}"></script>
+    {{-- <link rel="stylesheet" href="{{ asset('vendor/sweetalert2/sweetalert2.min.css') }}"> --}}
+    {{-- <script src="{{ asset('vendor/sweetalert2/sweetalert2.min.js') }}"></script> --}}
 
     <style>
         .min-vh-75 {
@@ -39,7 +39,7 @@
     <div class="wrapper" id="app">
         @include('layouts.header')
         @include('layouts.navbar')
-        @include('sweetalert::alert', ['cdn' => 'https://cdn.jsdelivr.net/npm/sweetalert2@9'])
+        {{-- @include('sweetalert::alert', ['cdn' => 'https://cdn.jsdelivr.net/npm/sweetalert2@9']) --}}
         <div class="page-wrapper ">
             <div class="container-xl min-vh-75">
                 <div class="page-body">

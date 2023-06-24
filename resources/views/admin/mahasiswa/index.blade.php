@@ -29,11 +29,12 @@
                         @foreach ($allmahasiswa as $mahasiswa)
                             <tr>
                                 <td>{{ $startIndex++ }}</td>
-                                <td>{{ $mahasiswa->user->email }}</td>
-                                <td>{{ $mahasiswa->user->name }}</td>
-                                <td>{{ $mahasiswa->prodi->name }}</td>
-                                <td>{{ $mahasiswa->prodi->jenjang->name }}</td>
-                                <td class=" text-capitalize">{{ $mahasiswa->status == 1 ? 'Aktif' : 'Tidak Aktif' }}</td>
+                                <td class="text-muted">{{ $mahasiswa->user->email }}</td>
+                                <td class="text-muted">{{ $mahasiswa->user->name }}</td>
+                                <td class="text-muted">{{ $mahasiswa->prodi->name }}</td>
+                                <td class="text-muted">{{ $mahasiswa->prodi->jenjang->name }}</td>
+                                <td class=" text-capitalize text-muted">
+                                    {{ $mahasiswa->status == 1 ? 'Aktif' : 'Tidak Aktif' }}</td>
                                 <td class="text-end">
                                     <span class="dropdown">
                                         <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport"

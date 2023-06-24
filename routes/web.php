@@ -47,6 +47,9 @@ Route::prefix('prodi')->group(function(){
     Route::put('/{id}/update',[ProdiController::class,'update'])->name('prodi.update');
     Route::get('/{id}/delete',[ProdiController::class,'destroy'])->name('prodi.destroy');
 });
+Route::get('/docs', function () {
+    return view('docs.index');
+})->name('docs');
 // Route::resource('prodi', ProdiController::class);
 // Route::prefix('mahasiswa')->group(function(){
 //     Route::get('/', [MahasiswaController::class,'index'])->name('mahasiswa.index');

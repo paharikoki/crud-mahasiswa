@@ -14,7 +14,7 @@ class ProdiController extends Controller
      */
     public function index()
     {
-        $allprodi = Prodi::all();
+        $allprodi = Prodi::with('fakultas','jenjang')->paginate(10);
         return view('admin.prodi.index',[
             'allprodi' =>$allprodi
         ]);
@@ -58,7 +58,7 @@ class ProdiController extends Controller
      */
     public function show($id)
     {
-        $prodi = Prodi::find($id);
+        $prodi = Prodi::with('fakultas','jenjang')->find($id);
         return view('admin.prodi.show',[
             'prodi' => $prodi
         ]);

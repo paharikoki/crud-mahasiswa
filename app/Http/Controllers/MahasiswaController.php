@@ -20,7 +20,7 @@ class MahasiswaController extends Controller
     {
         //get all mahasiswa with data prodi, fakultas, jenjang
         //get all mahasiswa with pagination
-        $mahasiswa = Mahasiswa::with('prodi', 'prodi.fakultas', 'prodi.jenjang')->paginate(10);
+        $mahasiswa = Mahasiswa::with('prodi', 'prodi.fakultas', 'prodi.jenjang','user')->paginate(10);
         // $mahasiswa = Mahasiswa::get();
         return view('admin.mahasiswa.index', [
             'allmahasiswa'=>$mahasiswa
@@ -92,7 +92,7 @@ class MahasiswaController extends Controller
      */
     public function show($id)
     {
-        $mahasiswa = Mahasiswa::find($id);
+        $mahasiswa = Mahasiswa::with('prodi', 'prodi.fakultas', 'prodi.jenjang','user')->find($id);
         return view('admin.mahasiswa.show', [
             'mahasiswa'=>$mahasiswa
         ]);
